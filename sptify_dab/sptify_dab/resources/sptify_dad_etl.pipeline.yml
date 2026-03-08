@@ -1,0 +1,20 @@
+# The main pipeline for sptify_dad
+
+resources:
+  pipelines:
+    sptify_dad_etl:
+      name: sptify_dad_etl
+      catalog: ${var.catalog}
+      schema: ${var.schema}
+      serverless: true
+      root_path: "../src/sptify_dad_etl"
+
+      libraries:
+        - glob:
+            include: ../src/sptify_dad_etl/transformations/**
+
+      environment:
+        dependencies:
+          # We include every dependency defined by pyproject.toml by defining an editable environment
+          # that points to the folder where pyproject.toml is deployed.
+          - --editable ${workspace.file_path}
