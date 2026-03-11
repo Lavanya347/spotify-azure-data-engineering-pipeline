@@ -1,130 +1,124 @@
 # 🎧 Spotify End-to-End Azure Data Engineering Project
 
-## 🚀 Production-Ready Azure Data Pipeline
+This project demonstrates a complete **End-to-End Data Engineering pipeline built on Microsoft Azure**.
 
-This project demonstrates a production-style Data Engineering pipeline built on Microsoft Azure.
+The pipeline ingests Spotify dataset files, processes them using scalable Azure services, and transforms them into analytics-ready datasets using **Medallion Architecture (Bronze → Silver → Gold).**
 
-The pipeline ingests Spotify datasets and processes them through a scalable Lakehouse architecture using Azure services.
-
-The solution follows Medallion Architecture (Bronze → Silver → Gold).
+The project implementation is inspired by the learning content from **Ansh Lamba**.
 
 ---
 
-## ⭐ Key Highlights
+# 🚀 Project Architecture
 
-✔ End-to-End Azure Pipeline  
-✔ Medallion Architecture  
-✔ Incremental Data Loading  
-✔ PySpark Transformations  
-✔ Meta-data driven pipeline
-✔ Delta Tables  
-✔ Star Schema Modeling
+The architecture shows how data flows across Azure services including ingestion, transformation, and storage.
+
+![Architecture](screenshots/1.%20Architecture.png)
 
 ---
 
-## 🏗️ Architecture
+# ☁️ Azure Resource Group
 
-(Add architecture diagram here)
+All Azure services used in the project are organized under a single **Resource Group** for easy management.
 
-![Architecture](architecture/architecture.png)
-
----
-
-## ⚙️ Tech Stack
-
-Azure Data Factory  
-Azure Databricks  
-Azure Data Lake Gen2  
-Azure SQL Database  
-PySpark  
-Delta Lake  
-SQL  
-GitHub
+![Resource Group](screenshots/2.%20Resource_group.png)
 
 ---
 
-## 🔄 Data Pipeline
+# 📦 Data Lake Storage Containers
 
-Source → Azure Data Factory → Bronze → Databricks → Silver → Databricks → Gold
+The Azure Data Lake Storage contains multiple containers for organizing raw and processed data.
 
----
+Typical containers include:
 
-## 🧱 Medallion Architecture
+- Bronze (Raw Data)
+- Silver (Cleaned Data)
+- Gold (Analytics Data)
 
-### Bronze Layer
-
-Raw data ingested from source system.
-
-(Add Screenshot)
-
-![Bronze](screenshots/bronze.png)
+![Containers](screenshots/3.%20Containers.png)
 
 ---
 
-### Silver Layer
+# 🔄 Azure Data Factory Pipeline
 
-Cleaned and transformed data.
+Azure Data Factory is used to orchestrate the ingestion pipeline that loads raw Spotify data into the data lake.
 
-(Add Screenshot)
-
-![Silver](screenshots/silver.png)
+![ADF Pipeline](screenshots/4.%20ADF_Pipeline.png)
 
 ---
 
-### Gold Layer
+# 🔁 Incremental Ingestion Using ForEach Loop
 
-Analytics-ready business tables.
+The pipeline uses **ForEach activity** to dynamically ingest multiple files from the source system.
 
-(Add Screenshot)
+This makes the ingestion pipeline scalable and automated.
 
-![Gold](screenshots/gold.png)
-
----
-
-## 📊 Data Model
-
-Star Schema implemented in Gold Layer.
-
-(Add Screenshot)
-
-![StarSchema](screenshots/star_schema.png)
+![ADF ForEach Pipeline](screenshots/5.%20ADF_Pipeline(For%20each).png)
 
 ---
 
-## 📂 Repository Structure
+# 🥉 Bronze Layer (Raw Data)
 
-spotify-azure-project/
+The Bronze layer stores the raw ingested data exactly as it arrives from the source.
 
-├── notebooks/  
-├── pipelines/  
-├── scripts/  
-├── screenshots/  
-├── architecture/  
-└── README.md
+No transformations are applied here.
+
+![Bronze Layer](screenshots/6.%20Bronze.png)
 
 ---
 
-## 🚀 How to Run
+# 📂 Project Repository Structure
 
-1. Create Azure Resources  
-2. Deploy Data Factory Pipelines  
-3. Run Databricks Notebooks  
-4. Verify Gold Tables
+The repository is organized to clearly separate pipelines, datasets, linked services, and Databricks notebooks.
 
----
-
-## 🎯 Skills Demonstrated
-
-• Azure Data Factory  
-• Azure Databricks  
-• PySpark  
-• Data Modeling  
-• ETL Development  
-• Data Lake Architecture
+![Folder Structure](screenshots/7.%20folder_struct.png)
 
 ---
 
-## 👩‍💻 Author
+# 🥇 Gold Layer Data Pipeline
+
+The Gold layer contains **business-ready datasets** used for reporting and analytics.
+
+Transformations are executed using **Azure Databricks and PySpark**.
+
+![Gold Pipeline](screenshots/8.%20Gold_Pipeline.png)
+
+---
+
+# 🧠 Databricks Catalog & Tables
+
+Azure Databricks is used for large-scale data transformations and table creation.
+
+Tables are registered in the Databricks catalog for easy querying and analysis.
+
+![Databricks Catalog](screenshots/9.%20DataBricks_Catalog.png)
+
+---
+
+# ⚙️ Technologies Used
+
+- Azure Data Factory
+- Azure Data Lake Storage Gen2
+- Azure Databricks
+- PySpark
+- Delta Lake
+- Azure SQL
+- GitHub
+
+---
+
+# 📊 Data Engineering Concepts Demonstrated
+
+- End-to-End Data Pipeline
+- Medallion Architecture
+- Incremental Data Ingestion
+- Data Lake Design
+- ETL / ELT Pipelines
+- PySpark Transformations
+- Cloud Data Engineering
+
+---
+
+# 👩‍💻 Author
 
 Lavanya K  
 Data Analyst | Aspiring Data Engineer
