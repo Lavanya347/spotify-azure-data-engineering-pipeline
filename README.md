@@ -163,6 +163,14 @@ README.md
 
 # 👩‍💻 Author
 
+Hi, I’m **Lavanya** 👋
+I’m an IT professional and aspiring **Data Analyst** passionate about building data-driven solutions.
+I enjoy working with SQL, data warehousing, and analytics to transform raw data into meaningful insights.
+This project is part of my portfolio to demonstrate hands-on experience in **data engineering and analytics**.
+
+## 🔗 Connect with Me
+🔗 **[LinkedIn Profile](https://www.linkedin.com/in/lavanya-lk)**  
+📧 **Email:** lavanya347@gmail.com  
 Lavanya K  
 
 Data Analyst | Aspiring Data Engineer
